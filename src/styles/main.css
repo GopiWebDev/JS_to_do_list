@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+#sidebar {
+  text-align: center;
+  grid-column: 1;
+  grid-row: 1 / 5;
+  border: 5px solid red;
+}
+
+#sidebar h1 {
+  margin: 15px;
+}
+
+#todos {
+  grid-row: 1 / 5;
+  grid-column: 2 / 5;
+  border: 5px solid blue;
+}
+
+#projects {
+  margin: 15px 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-item {
+  border: 2px solid black;
+}
+
+.project-item:hover {
+  cursor: pointer;
+}
