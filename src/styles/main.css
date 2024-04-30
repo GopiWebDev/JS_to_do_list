@@ -3,42 +3,79 @@
   padding: 0;
 }
 
-main {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+body {
+  box-sizing: border-box;
 }
 
-#sidebar {
+#header {
+  background: red;
   text-align: center;
-  grid-column: 1;
-  grid-row: 1 / 5;
-  border: 5px solid red;
+  font-size: 2em;
+  padding: 20px;
 }
 
-#sidebar h1 {
-  margin: 15px;
+#container {
+  background: pink;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-#todos {
-  grid-row: 1 / 5;
-  grid-column: 2 / 5;
-  border: 5px solid blue;
-}
-
-#projects {
-  margin: 15px 0;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+#projects-container {
+  text-align: center;
+  background: darkcyan;
 }
 
 .project-item {
+  margin: 1rem;
   border: 2px solid black;
+  padding: 1rem;
+  font-size: 1.25em;
 }
 
 .project-item:hover {
   cursor: pointer;
+}
+
+#project-input {
+  margin: 2rem;
+}
+
+#todos-container {
+  background: lightblue;
+  grid-column: 2 / 5;
+  grid-row: 1 / auto;
+}
+
+.modal {
+  border: 1px solid black;
+  height: 500px;
+  width: 350px;
+  background-color: lightcoral;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  overflow: hidden;
+}
+textarea {
+  resize: none;
+  padding: 10px;
+}
+
+#dialog-form {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.checklist-div {
+  display: flex;
+}
+
+#todo-item-template {
+  border: 1px solid black;
+  width: 350px;
+  margin: 20px;
 }
