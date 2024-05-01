@@ -1,4 +1,7 @@
+import createModal from "./dialogBox";
+
 function createTodosContainer() {
+  createModal();
   const main = document.querySelector("main");
 
   const todosContainer = document.createElement("div");
@@ -7,7 +10,7 @@ function createTodosContainer() {
   const button = document.createElement("button");
   button.innerText = "Add Todo";
 
-  const dialog = document.querySelector("dialog");
+  const dialog = document.querySelector(".modal");
   button.addEventListener("click", () => {
     dialog.show();
   });

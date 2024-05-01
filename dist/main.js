@@ -130,6 +130,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 
 /***/ }),
 
+/***/ "./src/js/dialogBox.js":
+/*!*****************************!*\
+  !*** ./src/js/dialogBox.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _renderTodo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./renderTodo */ \"./src/js/renderTodo.js\");\n\r\n\r\nfunction createModal() {\r\n  const main = document.querySelector(\"main\");\r\n  const dialog = document.createElement(\"dialog\");\r\n  dialog.classList.add(\"modal\");\r\n\r\n  const form = document.createElement(\"form\");\r\n  form.id = \"dialog-form\";\r\n\r\n  const htmlElement = `<label for=\"todo-name\">Todo Name </label>\r\n  <input type=\"text\" name=\"todo-name\" id=\"todo-name\" />\r\n  <label for=\"todo-description\">Description</label>\r\n  <textarea\r\n    type=\"text\"\r\n    name=\"todo-description\"\r\n    id=\"todo-description\"\r\n    rows=\"6\"\r\n    cols=\"10\"\r\n    placeholder=\"enter the todo description - max 200 characters\"\r\n    maxlength=\"200\"\r\n  ></textarea>\r\n  <label for=\"date-selector\">Due Date</label>\r\n  <input type=\"date\" name=\"date-selector\" id=\"date-selector\" />\r\n  <label for=\"priority\">Priority Level </label>\r\n  <select name=\"priority\" id=\"priority\">\r\n    <option value=\"1\">1</option>\r\n    <option value=\"2\">2</option>\r\n    <option value=\"3\">3</option>\r\n    <option value=\"4\">4</option>\r\n  </select>\r\n  <label for=\"notes\">Notes</label>\r\n  <textarea name=\"notes\" id=\"notes\" cols=\"10\" rows=\"5\"></textarea>\r\n  <label for=\"checklist\">Checklist</label>\r\n  <div class=\"checklist-div\">\r\n    <input type=\"text\" name=\"checklist\" id=\"checklist\" />\r\n    <button for=\"checklist-btn\">Add</button>\r\n  </div>\r\n  <input type=\"submit\" value=\"Add todo\" />`;\r\n\r\n  form.innerHTML = htmlElement;\r\n  dialog.appendChild(form);\r\n  main.appendChild(dialog);\r\n\r\n  form.addEventListener(\"submit\", (e) => {\r\n    const todoNameInput = document.querySelector(\"#todo-name\");\r\n    const descriptionInput = document.querySelector(\"#todo-description\");\r\n    const dateInput = document.querySelector(\"#date-selector\");\r\n    const notesInput = document.querySelector(\"#notes\");\r\n    \r\n\r\n    e.preventDefault();\r\n    const newTodo = {\r\n      name: todoNameInput.value,\r\n      description: descriptionInput.value,\r\n      date: dateInput.value,\r\n      notes: notesInput.value,\r\n    };\r\n    (0,_renderTodo__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(newTodo);\r\n    dialog.close();\r\n  });\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createModal);\r\n\n\n//# sourceURL=webpack://js_to_do_list/./src/js/dialogBox.js?");
+
+/***/ }),
+
 /***/ "./src/js/header.js":
 /*!**************************!*\
   !*** ./src/js/header.js ***!
@@ -150,13 +160,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/js/renderTodo.js":
+/*!******************************!*\
+  !*** ./src/js/renderTodo.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction renderTodo(newTodo) {\r\n  const todoContainer = document.querySelector(\"#todos-container\");\r\n\r\n  const template = document.querySelector(\"#todo-item-template\");\r\n  const templateClone = template.content.cloneNode(true);\r\n\r\n  const todoName = templateClone.querySelector(\"[data-todo-name]\");\r\n  todoName.innerText = newTodo.name;\r\n\r\n  const todoDescription = templateClone.querySelector(\r\n    \"[data-todo-description]\"\r\n  );\r\n  todoDescription.innerText = newTodo.description;\r\n\r\n  const todoDate = templateClone.querySelector(\"[data-todo-date]\");\r\n  todoDate.innerText = newTodo.date;\r\n\r\n  const todoNote = templateClone.querySelector(\"[data-todo-notes]\");\r\n  todoNote.innerText = newTodo.notes;\r\n\r\n  todoContainer.appendChild(templateClone);\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderTodo);\r\n\n\n//# sourceURL=webpack://js_to_do_list/./src/js/renderTodo.js?");
+
+/***/ }),
+
 /***/ "./src/js/todosContainer.js":
 /*!**********************************!*\
   !*** ./src/js/todosContainer.js ***!
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nfunction createTodosContainer() {\r\n  const main = document.querySelector(\"main\");\r\n\r\n  const todosContainer = document.createElement(\"div\");\r\n  todosContainer.id = \"todos-container\";\r\n\r\n  const button = document.createElement(\"button\");\r\n  button.innerText = \"Add Todo\";\r\n\r\n  const dialog = document.querySelector(\"dialog\");\r\n  button.addEventListener(\"click\", () => {\r\n    dialog.show();\r\n  });\r\n\r\n  todosContainer.appendChild(button);\r\n\r\n  main.appendChild(todosContainer);\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createTodosContainer);\r\n\n\n//# sourceURL=webpack://js_to_do_list/./src/js/todosContainer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _dialogBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dialogBox */ \"./src/js/dialogBox.js\");\n\r\n\r\nfunction createTodosContainer() {\r\n  (0,_dialogBox__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\r\n  const main = document.querySelector(\"main\");\r\n\r\n  const todosContainer = document.createElement(\"div\");\r\n  todosContainer.id = \"todos-container\";\r\n\r\n  const button = document.createElement(\"button\");\r\n  button.innerText = \"Add Todo\";\r\n\r\n  const dialog = document.querySelector(\".modal\");\r\n  button.addEventListener(\"click\", () => {\r\n    dialog.show();\r\n  });\r\n\r\n  todosContainer.appendChild(button);\r\n\r\n  main.appendChild(todosContainer);\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createTodosContainer);\r\n\n\n//# sourceURL=webpack://js_to_do_list/./src/js/todosContainer.js?");
 
 /***/ })
 
