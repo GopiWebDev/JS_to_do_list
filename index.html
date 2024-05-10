@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Todo App</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <h1 class="title">Todo App</h1>
+
+    <div class="all-projects">
+      <h2 class="project-list-title">My Projects</h2>
+      <ul class="project-list" data-projects></ul>
+
+      <form action="" data-new-project-form>
+        <input type="text" class="new list" data-new-project-input />
+        <button class="btn create" aria-label="create new list">+</button>
+      </form>
+    </div>
+
+    <div class="todo-list" data-project-display-container>
+      <div class="todo-header">
+        <h2 class="list-title" data-project-title></h2>
+        <div class="delete-section">
+          <button class="btn delete" data-clear-complete-todos-button>
+            Clear completed todos
+          </button>
+          <button class="btn delete" data-delete-project-button>
+            Delete project
+          </button>
+        </div>
+      </div>
+      <div class="todo-body">
+        <div class="tasks" data-todos></div>
+        <div class="new-task-creator">
+          <form id="new-todo-form" data-new-todo-form>
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" required
+            data-new-todo-name-input / >
+            <label for="description">Description: </label
+            ><input
+              type="text"
+              name="description"
+              id="description"
+              data-new-todo-desc-input
+            />
+            <label for="due-date">Due Date: </label
+            ><input
+              type="date"
+              d
+              id="due-date"
+              required
+              data-new-todo-date-input
+            />
+            <label for="priority">Priority: </label
+            ><select name="priority" id="priority" data-new-todo-priority-input>
+              <option value="high">High</option>
+              <option value="medium">Medium</option>
+              <option selected="selected" value="low">Low</option>
+            </select>
+            <label for="notes">Notes: </label
+            ><input
+              type="text"
+              name="notes"
+              id="notes"
+              data-new-todo-notes-input
+            />
+            <input
+              type="submit"
+              class="btn create"
+              value="Add New Todo"
+              id="add-todo-btn"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <template id="todo-template">
+      <div class="task">
+        <div class="name-section">
+          <input type="checkbox" />
+          <label>
+            <span class="custom-checkbox"></span>
+          </label>
+        </div>
+        <div class="remaining-section">
+          <div class="description"></div>
+          <div class="due-date"></div>
+          <div class="priority"></div>
+          <div class="notes"></div>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
